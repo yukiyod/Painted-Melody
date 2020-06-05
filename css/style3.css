@@ -1,0 +1,124 @@
+body {
+  background-color: rgb(245, 200, 103);
+}
+
+nav ul {
+  display: table;
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  text-align: center;
+}
+
+nav ul li {
+  display: table-cell;
+  min-width: 50px;
+  border-right: 3px solid white;
+}
+
+nav ul li:first-child {
+  border-left: 3px solid white;
+}
+
+nav ul li a {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  text-decoration: none;
+  color: white;
+}
+
+nav ul li a:hover {
+  background-color: #f8e750;
+  border-bottom: 5px solid #f8e750;
+}
+
+nav ul li.current {
+  font-weight: bold;
+}
+nav ul li.current a {
+  border-bottom: 5px solid lightcoral;
+  color: lightcoral;
+}
+
+.maintitle {
+  margin: 30px auto;
+  font-size: 4em;
+  text-align: center;
+  line-height: 0.95em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 0.05em #fc53b8, 0 0 0.1em #ff099d, 0 0 0.15em #f06292,
+    0 0 0.3em #f06292;
+  filter: saturate(80%);
+}
+
+.waveselect {
+  margin-left: 140px;
+  margin-bottom: 20px;
+}
+
+.colorp {
+  margin-top: 10px;
+}
+
+label {
+  color: rgb(6, 174, 87);
+  font-weight: bold;
+}
+#sequence {
+  border: solid 1px rgb(59, 74, 236);
+}
+
+.wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.btns {
+  display: flex;
+  margin: 0 auto;
+  width: 500px;
+}
+
+#clearbtn {
+  color: #a28e8f;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  margin: 0 auto;
+}
+
+#clearbtn:active {
+  /*押したとき*/
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px); /*沈むように*/
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(
+    #fed6e3 0%,
+    #ffbcbc 100%
+  ); /*グラデーションを明るく*/
+}
+
+#playbtn {
+  color: #a28e8f;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background: linear-gradient(#acf7f8 0%, #178eea 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  margin: 0 auto;
+}

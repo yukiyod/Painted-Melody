@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painted Melody_okinawa</title>
+    <link rel="stylesheet" href="css/style2.css" />
+  </head>
+  <body>
+    <!--タイトル-->
+
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Normal</a></li>
+          <li class="current"><a href="index2.html">Okinawa</a></li>
+          <li><a href="index3.html">Easy</a></li>
+        </ul>
+      </nav>
+      <h1 class="maintitle">Painted Melody</h1>
+    </header>
+    <!--波形選択-->
+    <div class="waveselect">
+      <label for="osctype">Select Oscillator：</label>
+      <select id="osctype">
+        <option value="sine">sine</option>
+        <option value="square">square</option>
+        <option value="triangle">triangle</option>
+        <option value="sawtooth">saw</option>
+      </select>
+      <!-- カラーパレット -->
+      <div class="colorp">
+        <label for="cid">Select color：</label>
+        <input type="color" id="cid" />
+      </div>
+    </div>
+    <div class="btns">
+      <!--clearボタン-->
+      <div id="clearbtn">Clear</div>
+      <!--playボタン-->
+      <div id="playbtn">play</div>
+    </div>
+    <!--canvas-->
+    <div class="wrapper">
+      <canvas id="sequence"></canvas>
+    </div>
+
+    <!--Tone.jpの読み込み-->
+    <script src="js/Tone.js"></script>
+    <!-- jqueryを使う時はここでCDNを読み込みます（必ず先に読み込む） -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="js/okinawa.js"></script>
+  </body>
+</html>
