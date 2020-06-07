@@ -1,4 +1,4 @@
-//ver.4 同時の和音にも対応、ただしアルペジオになる
+//ver.5 テンポ可変対応
 
 //canvasのおまじない====================================
 var canvas = $("#sequence")[0]; //canvas要素を変数に
@@ -9,7 +9,6 @@ var ctx = canvas.getContext("2d"); //書き込み権限を入れる
 var synth;
 var osc = $("#osctype").val();
 window.onload = function () {
-  //get the current time
   synth = new Tone.Synth({
     oscillator: {
       type: osc,
@@ -36,11 +35,20 @@ $("#osctype").change(function () {
 //===================================
 
 //塗りつぶし色の設定=================
-var cid = "";
+var cid = "#ffffff";
 
 // Colorを選択するとイベントが実行される;
 $("#cid").on("change", function () {
-  cid = $(this).val(); //thisは"#cid"と同意
+  cid = $(this).val();
+});
+//==============================================
+
+//テンポの設定=================
+var tempo = "120";
+
+// Tempoを選択するとイベントが実行される;
+$("#tempo").on("change", function () {
+  tempo = $(this).val();
 });
 //==============================================
 
@@ -99,7 +107,6 @@ $(canvas).on("mousedown", function (e) {
     // console.log(nSound[n]);
     // console.log(cols[n]);
     if (row == n * 40) {
-      //get the current time
       synth.triggerAttackRelease(nSound[n], "8n");
       var pitch = nSound[n];
       var time = col / 40 + 1; //１sec単位は遅いので半分にする
@@ -117,7 +124,11 @@ var cols = [0, 40, 80, 120, 160, 200, 240, 280, 320, 360, 400, 440];
 
 //再生する================================================
 
-$("#playbtn").on("click", function () {
+$("#play").on("click", function () {
+  //start/stopボタン表示切り替え
+  $("#play").hide();
+  $("#stop").show();
+
   //time(x軸の値)に合わせてソート
   var newmelody = melody.sort(function (a, b) {
     return a[1] - b[1];
@@ -212,11 +223,6 @@ $("#playbtn").on("click", function () {
     melo20,
   ]; //tone.sequenceで再生できるようメロディのみの配列に入れ直す
 
-  //   var onlytime = []; //休符の処理のためtimeだけの配列を用意
-  //   for (var z = 0; z < newmelody.length; z++) {
-  //     onlytime.push(newmelody[z][1]);
-  //   }
-
   //8分音符で再生
   function setPlay(time, note) {
     synth.triggerAttackRelease(note, "16n", time);
@@ -228,21 +234,21 @@ $("#playbtn").on("click", function () {
   //   メロディ再生;
   melody5.start();
   Tone.Transport.start();
+  Tone.Transport.bpm.value = tempo;
 
   console.log(onlymelody);
   //   console.log(onlytime);
   //   console.log(missing);
-  console.log(melo1);
-  console.log(melo2);
+  // console.log(melo1);
+  // console.log(melo2);
+});
 
-  //   var synth2 = new Tone.Synth({
-  //     oscillator: {
-  //       type: osc,
-  //     },
-  //   }).toMaster();
-
-  //   for (var a = 0; a < newmelody.length; a++)
-  //     synth2.triggerAttackRelease(newmelody[a][0], "8n", newmelody[a][1] + 5); //timeリセットできないので10秒delay
+//Stopボタン===========================================
+$("#stop").on("click", function () {
+  //start/stopボタン表示切り替え
+  $("#play").show();
+  $("#stop").hide();
+  Tone.Transport.stop();
 });
 
 //クリアボタン==========================================

@@ -8,13 +8,13 @@
   </head>
   <body>
     <!--タイトル-->
-
     <header>
       <nav>
         <ul>
           <li><a href="index.html">Normal</a></li>
-          <li><a href="index2.html">Okinawa</a></li>
           <li class="current"><a href="index3.html">Easy</a></li>
+          <li><a href="index2.html">Okinawa</a></li>
+          <li><a href="index4.html">Arab</a></li>
         </ul>
       </nav>
       <h1 class="maintitle">Painted Melody</h1>
@@ -30,15 +30,33 @@
       </select>
       <!-- カラーパレット -->
       <div class="colorp">
-        <label for="cid">Select color：</label>
-        <input type="color" id="cid" />
+        <label for="cid">Select Color：</label>
+        <input type="color" id="cid" value="#c800ff" list="color-list" />
+        <datalist id="color-list">
+          <option value="#ff00ff"></option>
+          <option value="#ff9600"></option>
+          <option value="#ffff00"></option>
+          <option value="#00ff5A"></option>
+          <option value="#00fAff"></option>
+          <option value="#0000ff"></option>
+          <option value="#c800ff"></option>
+        </datalist>
+      </div>
+      <!--テンポ-->
+      <div class="tempos">
+        <label for="tempo">Select Tempo：</label>
+        <input type="range" id="tempo" name="speed" min="60" max="400" />
       </div>
     </div>
+
     <div class="btns">
       <!--clearボタン-->
       <div id="clearbtn">Clear</div>
       <!--playボタン-->
-      <div id="playbtn">play</div>
+      <div id="playbtn">
+        <div id="play">Play</div>
+        <div id="stop">Stop</div>
+      </div>
     </div>
     <!--canvas-->
     <div class="wrapper">

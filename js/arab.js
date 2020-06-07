@@ -5,8 +5,6 @@ var canvas = $("#sequence")[0]; //canvas要素を変数に
 var ctx = canvas.getContext("2d"); //書き込み権限を入れる
 //====================================================
 
-$("#stop").hide();
-
 // ページ読み込み時シンセ生成;
 var synth;
 var osc = $("#osctype").val();
@@ -37,12 +35,11 @@ $("#osctype").change(function () {
 //===================================
 
 //塗りつぶし色の設定=================
-var cid = "#ff00ff";
+var cid = "#00ff5A";
 
 // Colorを選択するとイベントが実行される;
-
 $("#cid").on("change", function () {
-  cid = $(this).val(); //thisは"#cid"と同意
+  cid = $(this).val();
 });
 //==============================================
 
@@ -51,7 +48,7 @@ var tempo = "120";
 
 // Tempoを選択するとイベントが実行される;
 $("#tempo").on("change", function () {
-  tempo = $(this).val(); //thisは"#cid"と同意
+  tempo = $(this).val();
 });
 //==============================================
 
@@ -60,30 +57,29 @@ $("#tempo").on("change", function () {
 var drawGrid = function (w, h) {
   ctx.canvas.width = w;
   ctx.canvas.height = h;
-  //縦線をかく(12音分)
-  for (x = 0; x <= w; x += 30) {
+  //縦線をかく(5音分：CDEsFisG)
+  for (x = 0; x <= w; x += 40) {
     ctx.moveTo(x, 0); //始点
     ctx.lineTo(x, h); //終点
   }
   //横線をかく
-  for (y = 0; y <= h; y += 30) {
+  for (y = 0; y <= h; y += 40) {
     ctx.moveTo(0, y);
     ctx.lineTo(w, y);
   }
-  ctx.strokeStyle = "pink";
+  ctx.strokeStyle = "teal";
   ctx.lineWidth = 2;
   ctx.stroke();
 };
 
 //実行
-drawGrid(600, 360);
+drawGrid(800, 200);
 //==================================================
 
 //画面読み込み時の定義==========================
 function begin() {
   canvas_mousedown_flg = false;
   ctx.fillStyle = "white";
-  //   drowGrid(800, 480);
 }
 //===========================================
 
@@ -97,23 +93,23 @@ $(canvas).on("mousedown", function (e) {
   mouseX = e.clientX - rect.left; //クリック座標からrectの左側の差分を引く
   mouseY = e.clientY - rect.top;
 
-  var col = Math.floor(mouseX / 30) * 30; //マス内に塗りつぶしを納めるよう調整
-  var row = Math.floor(mouseY / 30) * 30;
+  var col = Math.floor(mouseX / 40) * 40; //マス内に塗りつぶしを納めるよう調整
+  var row = Math.floor(mouseY / 40) * 40;
 
   //   console.log(col, row); //塗りつぶし座標の確認用
 
   ctx.fillStyle = cid;
-  ctx.fillRect(col, row, 30, 30); //塗りつぶし
+  ctx.fillRect(col, row, 40, 40); //塗りつぶし
 
   //X軸に応じた音程の発生
 
-  for (var n = 0; n < 12; n++) {
+  for (var n = 0; n < 6; n++) {
     // console.log(nSound[n]);
     // console.log(cols[n]);
-    if (row == n * 30) {
+    if (row == n * 40) {
       synth.triggerAttackRelease(nSound[n], "8n");
       var pitch = nSound[n];
-      var time = col / 30 + 1;
+      var time = col / 40 + 1; //１sec単位は遅いので半分にする
       melody.push([pitch, time]);
       console.log(melody);
     }
@@ -121,22 +117,9 @@ $(canvas).on("mousedown", function (e) {
 });
 
 //音の操作用の配列==================================================
-var nSound = [
-  "B4",
-  "A#4",
-  "A4",
-  "G#4",
-  "G4",
-  "F#4",
-  "F4",
-  "E4",
-  "D#4",
-  "D4",
-  "C#4",
-  "C4",
-];
+var nSound = ["G4", "F#4", "D#4", "D4", "C4"];
 
-var cols = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330];
+var cols = [0, 40, 80, 120, 160, 200, 240, 280, 320, 360, 400, 440];
 //===============================================================
 
 //再生する================================================

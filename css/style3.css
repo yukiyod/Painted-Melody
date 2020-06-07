@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(245, 200, 103);
+  background-color: rgb(239, 190, 130);
 }
 
 nav ul {
@@ -23,7 +23,7 @@ nav ul li:first-child {
 nav ul li a {
   display: block;
   width: 100%;
-  padding: 10px 0;
+  padding: 1px 0;
   text-decoration: none;
   color: white;
 }
@@ -48,24 +48,22 @@ nav ul li.current a {
   line-height: 0.95em;
   font-weight: bold;
   color: #fff;
-  text-shadow: 0 0 0.05em #fc53b8, 0 0 0.1em #ff099d, 0 0 0.15em #f06292,
-    0 0 0.3em #f06292;
+  text-shadow: 0 0 0.05em #5b0487, 0 0 0.1em #b300ff, 0 0 0.15em #c162f0,
+    0 0 0.3em #f986f5;
   filter: saturate(80%);
 }
 
 .waveselect {
-  margin-left: 140px;
-  margin-bottom: 20px;
-}
-
-.colorp {
-  margin-top: 10px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 label {
-  color: rgb(6, 174, 87);
+  color: rgb(170, 0, 255);
   font-weight: bold;
 }
+
 #sequence {
   border: solid 1px rgb(59, 74, 236);
 }
@@ -80,6 +78,7 @@ label {
   display: flex;
   margin: 0 auto;
   width: 500px;
+  justify-content: space-evenly;
 }
 
 #clearbtn {
@@ -94,7 +93,6 @@ label {
   background: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
-  margin: 0 auto;
 }
 
 #clearbtn:active {
@@ -108,7 +106,7 @@ label {
   ); /*グラデーションを明るく*/
 }
 
-#playbtn {
+#play {
   color: #a28e8f;
   width: 120px;
   height: 50px;
@@ -121,4 +119,28 @@ label {
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
   margin: 0 auto;
+}
+
+#stop {
+  color: #a28e8f;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  background: linear-gradient(#ccf8ac 0%, #17ea25 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  margin: 0 auto;
+  display: none;
+}
+
+.btop {
+  color: white;
+}
+
+.btop a:visited {
+  color: rgb(170, 0, 255);
 }

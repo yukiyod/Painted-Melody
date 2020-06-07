@@ -1,6 +1,5 @@
 body {
-  background-color: black;
-  max-width: 98%;
+  background-color: rgb(198, 163, 242);
 }
 
 nav ul {
@@ -49,8 +48,8 @@ nav ul li.current a {
   line-height: 0.95em;
   font-weight: bold;
   color: #fff;
-  text-shadow: 0 0 0.05em #f06292, 0 0 0.1em #f06292, 0 0 0.15em #f06292,
-    0 0 0.3em #f06292;
+  text-shadow: 0 0 0.05em #025613, 0 0 0.1em #00ffbb, 0 0 0.15em #c1f062,
+    0 0 0.3em #bcf986;
   filter: saturate(80%);
 }
 
@@ -61,11 +60,11 @@ nav ul li.current a {
 }
 
 label {
-  color: blanchedalmond;
+  color: rgb(0, 143, 57);
   font-weight: bold;
 }
 #sequence {
-  border: solid 1px orange;
+  border: solid 1px rgb(0, 143, 57);
 }
 
 .wrapper {
@@ -142,5 +141,5 @@ label {
 }
 
 .btop a:visited {
-  color: #f06292;
+  color: rgb(0, 143, 57);
 }
